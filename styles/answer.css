@@ -1,0 +1,8 @@
+.anwer {
+  display: flex;
+  gap: 1rem;
+}
+
+.answer ._active {
+  display: flex;
+}

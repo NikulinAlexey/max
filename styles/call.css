@@ -1,0 +1,40 @@
+.call {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.call._hidden .call__button {
+  display: block;
+}
+
+.call._hidden .call__counter {
+  display: none;
+}
+
+.call__button {
+  display: none;
+}
+
+.call__button:hover .call__emoji {
+  transform: scale(30);
+}
+
+.call__counter {
+  display: flex;
+}
+
+.call__counter-value {
+  display: block;
+  min-width: 34px;
+  text-align: center;
+}
+
+
+.call__counter._hidden {
+  display: none;
+}
+
+.call__counter._hidden .call__emoji {
+  transition: transform 10s linear;
+}
