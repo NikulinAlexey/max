@@ -1,8 +1,20 @@
-.anwer {
-  display: flex;
-  gap: 1rem;
+.answer {
+  display: none;
 }
 
-.answer ._active {
+.answer__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.answer__result {
+  color: green;
+}
+
+.answer._active {
   display: flex;
+  gap: 1rem;
+  flex-direction: column;
 }

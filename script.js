@@ -1,44 +1,40 @@
 const form = document.querySelector(".form");
+const formInput = document.querySelector(".form__input");
 const answer = document.querySelector(".answer");
+const container = document.querySelector(".container");
 
-const hint = document.querySelector(".hint");
-
-const call = document.querySelector(".call");
-const callButton = document.querySelector(".call__button");
-const counter = call.querySelector(".call__counter");
-const counterValue = counter.querySelector(".call__counter-value");
-
-console.log(counterValue);
-
-const rightAnswer = "000";
+const rightAnswer = "пи*27";
 
 function showAnwer() {
-  answer.style.setProperty("display", " block");
+  answer.classList.add("_active");
 }
 
 function hideForm() {
-  form.style.setProperty("display", "none");
+  form.classList.add("_hidden");
+}
+
+function showFailForm() {
+  form.classList.add("_fail");
+}
+
+function showSuccess() {
+  container.classList.add("_wide");
+  hideForm();
+  showAnwer();
 }
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
 
-  const answer = form.querySelector("content__input").value;
+  const answer = formInput.value;
 
   if (answer === rightAnswer) {
-    hideForm();
-    showAnwer();
+    showSuccess();
+  } else {
+    showFailForm();
   }
 });
 
-function counterControll() {
-  setInterval(() => {
-    if (Number(counterValue.textContent) > 0)
-      counterValue.textContent = Number(counterValue.textContent) - 1;
-    else call.classList.add("_hidden");
-  }, 1000);
-}
-
-counterControll();
-
-callButton.addEventListener("click", () => {hint.classList.add("_active") })
+formInput.addEventListener("input", () => {
+  form.classList.remove("_fail");
+});
